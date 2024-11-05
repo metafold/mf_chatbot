@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Metafold Chatbot for technical inquiries">
     <title>Metafold Chatbot</title>
     <link rel="stylesheet" href="metafold-chatbot-styles.css">
 </head>
 <body>
-    <script src="chatflow.js"></script>
+    <!-- Any demo content can go here -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                new MetafoldChatbot();
-            }, 500);
-        });
+        // Prevent issues with different load states
+        window.metafoldConfig = {
+            loadDelay: 1000, // Adjust if needed
+            debug: false     // Set to true for debugging
+        };
     </script>
+    <script src="chatflow.js"></script>
 </body>
 </html>
