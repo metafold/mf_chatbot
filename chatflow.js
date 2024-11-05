@@ -58,7 +58,7 @@ class BusinessEmailValidator {
 
 class MetafoldChatbot {
   constructor() {
-    this.webhookUrl = 'YOUR_MAKE_WEBHOOK_URL'; // Replace with your Make.com webhook URL
+    this.webhookUrl = 'https://hook.us1.make.com/e3nkggpokjr3hx23ftyeuupkqe8st3i2'; 
     this.state = {
       isOpen: false,
       messages: [],
