@@ -1,4 +1,3 @@
-// metafold-chatbot.js
 class BusinessEmailValidator {
   constructor() {
     this.blockedDomains = [
@@ -58,7 +57,7 @@ class BusinessEmailValidator {
 
 class MetafoldChatbot {
   constructor() {
-    this.webhookUrl = 'https://hook.us1.make.com/e3nkggpokjr3hx23ftyeuupkqe8st3i2'; 
+    this.webhookUrl = 'https://hook.us1.make.com/e3nkggpokjr3hx23ftyeuupkqe8st3i2';
     this.state = {
       isOpen: false,
       messages: [],
@@ -97,18 +96,29 @@ class MetafoldChatbot {
   }
 
   addEventListeners() {
-    document.getElementById('chat-toggle').addEventListener('click', () => {
-      this.toggleChat();
-    });
+    setTimeout(() => {
+      const chatToggle = document.getElementById('chat-toggle');
+      const closeChat = document.getElementById('close-chat');
 
-    document.getElementById('close-chat').addEventListener('click', () => {
-      this.toggleChat();
-    });
+      if (chatToggle) {
+        chatToggle.addEventListener('click', () => this.toggleChat());
+      } else {
+        console.error('#chat-toggle button not found');
+      }
+
+      if (closeChat) {
+        closeChat.addEventListener('click', () => this.toggleChat());
+      } else {
+        console.error('#close-chat button not found');
+      }
+    }, 300);  // Delay for 300 ms to ensure elements are loaded
   }
 
   toggleChat() {
+    console.log("toggleChat called");  // Debugging line
     const chatWindow = document.getElementById('chat-window');
     const isHidden = chatWindow.classList.contains('hidden');
+    console.log(`Chat window hidden: ${isHidden}`);  // Debugging line
     
     chatWindow.classList.toggle('hidden');
     
