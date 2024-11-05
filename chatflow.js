@@ -115,17 +115,24 @@ class MetafoldChatbot {
   }
 
   toggleChat() {
-    console.log("toggleChat called");  // Debugging line
     const chatWindow = document.getElementById('chat-window');
+    if (!chatWindow) {
+        console.error('Chat window not found');
+        return;
+    }
+    
     const isHidden = chatWindow.classList.contains('hidden');
     console.log(`Chat window hidden: ${isHidden}`);  // Debugging line
     
-    chatWindow.classList.toggle('hidden');
-    
-    if (isHidden && this.state.messages.length === 0) {
-      this.startConversation();
+    if (isHidden) {
+        chatWindow.classList.remove('hidden');
+        if (this.state.messages.length === 0) {
+            this.startConversation();
+        }
+    } else {
+        chatWindow.classList.add('hidden');
     }
-  }
+}
 
   startConversation() {
     this.addMessage("👋 Hi there! I'm here to connect you with the right person on our technical team. What brings you here today?");
